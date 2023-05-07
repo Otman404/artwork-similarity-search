@@ -7,11 +7,13 @@ This is a streamlit app that allows users to search for similar artworks based o
 ## Installation
 
 Dataset used in this project: [ikarus777/best-artworks-of-all-time](https://www.kaggle.com/datasets/ikarus777/best-artworks-of-all-time)
+
 For simplicity sake, only 20 artworks per artist are kept.
 
 Data preparation: [data_prep.ipynb](data/data_prep.ipynb)
 
 The final data is encoded using the CLIP model, the resulting embeddings are then stored in a qdrant collection in addition to a payload containing the image path and artist name.
+
 These images are also sotred in a GCP bucket so they can be accessible when any match is found after a similarity search.
 
 1. Clone this repository: `git clone https://github.com/Otman404/artwork-similarity-search.git`

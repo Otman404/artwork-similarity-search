@@ -82,10 +82,3 @@ class GCP:
         for image_path in itertools.islice(result, n):
             url_list.append(self.bucket.blob(image_path.name).generate_signed_url(expire_in))
         return url_list
-
-
-if __name__ == "__main__":
-    gcp = GCP()
-    # print(gcp.list_files(prefix="images/William_Turner"))
-    # print(gcp.get_artist_artwork("William Turner", 4))
-    print(gcp.get_artists_data())
