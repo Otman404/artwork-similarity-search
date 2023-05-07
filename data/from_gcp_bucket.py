@@ -1,7 +1,10 @@
 
 from google.oauth2 import service_account
 from google.cloud import storage
-import streamlit as st
+import os
+import sys
+sys.path.append(os.path.dirname("../"))
+from config import GCP_CREDS
 from datetime import datetime, timedelta
 from urllib.request import urlopen
 import cloudpickle as cp
@@ -17,7 +20,7 @@ class GCP:
         :param path_prefix: str, the prefix path for the GCP files.
         """
         self.credentials = service_account.Credentials.from_service_account_info(
-            st.secrets["gcp_service_account"]
+            GCP_CREDS
         )
         self.storage_client = storage.Client(credentials=self.credentials)
         self.bucket_name = bucket_name
