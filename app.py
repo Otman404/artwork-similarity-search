@@ -12,8 +12,8 @@ st.set_page_config(
 )
 
 
-vectorsearch = VectorSearch(encoder_name=EMBEDDER, qdrant_url=QDRANT_URL,
-                            qdrant_key=QDRANT_KEY, collection_name=COLLECTION_NAME)
+vectorsearch = VectorSearch(encoder_name=st.secrets['Database']['EMBEDDER_NAME'], qdrant_url=st.secrets['Database']['QDRANT_URL'],
+                            qdrant_key=st.secrets['Database']['QDRANT_KEY'], collection_name=st.secrets['Database']['COLLECTION_NAME'])
 gcp = GCP()
 
 st.sidebar.image("images/header_sidebar.png")
