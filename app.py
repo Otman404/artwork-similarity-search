@@ -12,7 +12,7 @@ st.set_page_config(
 )
 
 
-@st.cache_resource
+@st.cache_resource(show_spinner=False)
 def load_search_object():
     return VectorSearch(encoder_name=EMBEDDER, qdrant_url=QDRANT_URL,
                             qdrant_key=QDRANT_KEY, collection_name=COLLECTION_NAME)
