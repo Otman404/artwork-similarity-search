@@ -12,8 +12,12 @@ st.set_page_config(
 )
 
 
-vectorsearch = VectorSearch(encoder_name=EMBEDDER, qdrant_url=QDRANT_URL,
+@st.cache_resource
+def load_search_object():
+    return VectorSearch(encoder_name=EMBEDDER, qdrant_url=QDRANT_URL,
                             qdrant_key=QDRANT_KEY, collection_name=COLLECTION_NAME)
+
+vectorsearch = load_search_object()
 gcp = GCP()
 
 st.sidebar.image("images/header_sidebar.png")
